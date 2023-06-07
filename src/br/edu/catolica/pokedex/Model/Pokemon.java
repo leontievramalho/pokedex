@@ -1,19 +1,17 @@
 package br.edu.catolica.pokedex.Model;
 
-import br.edu.catolica.pokedex.Abstracts.ACaracteristicasFisicas;
-import br.edu.catolica.pokedex.Abstracts.AHabilidade;
-import br.edu.catolica.pokedex.Abstracts.AInfoBasicas;
-import br.edu.catolica.pokedex.Abstracts.AStats;
+import br.edu.catolica.pokedex.Abstracts.*;
+import br.edu.catolica.pokedex.Interface.Falar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pokemon {
+public class Pokemon extends APokemon implements Falar{
     AInfoBasicas infoBasicas;
     ACaracteristicasFisicas caracteristicasFisicas;
     AStats stats;
     List<AHabilidade> habilidades;
-    List<Golpe> golpes;
+    List<AGolpe> golpes;
 
     public Pokemon (AInfoBasicas infoBasicas, ACaracteristicasFisicas caracteristicasFisicas,
                     AStats stats, AHabilidade habilidade){
@@ -54,20 +52,56 @@ public class Pokemon {
     }
 
     public void addHabilidade(AHabilidade habilidade){
-        this.habilidades.add(habilidade);
+        try {
+            this.habilidades.add(habilidade);
+        }catch (Exception e){
+            System.err.println(e);
+        }
     }
     public void removerHabilidade(AHabilidade habilidade){
-        this.habilidades.remove(habilidade);
+        try {
+            this.habilidades.remove(habilidade);
+        }catch (Exception e){
+            System.err.println(e);
+        }
     }
 
-    public List<Golpe> getGolpes() {
+    public List<AGolpe> getGolpes() {
         return golpes;
     }
 
-    public void addGolpe(Golpe golpe){
-        this.golpes.add(golpe);
+    public void addGolpe(AGolpe golpe){
+        try {
+            this.golpes.add(golpe);
+        }catch (Exception e){
+            System.err.println(e);
+        }
     }
-    public void removerGolpe(Golpe golpe){
-        this.golpes.remove(golpe);
+    public void removerGolpe(AGolpe golpe){
+        try {
+            this.golpes.remove(golpe);
+        }catch (Exception e){
+            System.err.println(e);
+        }
+    }
+
+    @Override
+    public void falar() {
+        try {
+            System.out.println(getCaracteristicasFisicas().getFala());
+        }catch (Exception e){
+            System.err.println(e);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "infoBasicas=" + infoBasicas +
+                ", caracteristicasFisicas=" + caracteristicasFisicas +
+                ", stats=" + stats +
+                ", habilidades=" + habilidades +
+                ", golpes=" + golpes +
+                '}';
     }
 }

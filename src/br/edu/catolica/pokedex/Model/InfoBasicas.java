@@ -36,14 +36,22 @@ public class InfoBasicas extends AInfoBasicas {
     }
 
     public void setTipo(String tipo) {
-        this.tipo = new String[1];
-        this.tipo[0] = tipo;
+        try {
+            this.tipo = new String[1];
+            this.tipo[0] = tipo;
+        }catch (Exception e){
+            System.err.println(e);
+        }
     }
 
     public void setTipo(String tipo1, String tipo2) {
-        this.tipo = new String[2];
-        this.tipo[0] = tipo1;
-        this.tipo[1] = tipo2;
+        try {
+            this.tipo = new String[2];
+            this.tipo[0] = tipo1;
+            this.tipo[1] = tipo2;
+        }catch (Exception e){
+            System.err.println(e);
+        }
     }
 
     public String getDescricao() {
