@@ -4,7 +4,7 @@ import br.edu.catolica.pokedex.DAO.DAOPokedex;
 import br.edu.catolica.pokedex.Model.Pokemon;
 
 public class ControllerPokedex {
-    DAOPokedex pokedex = new DAOPokedex();
+    public DAOPokedex pokedex = new DAOPokedex();
 
     public boolean inserirPokemon(Pokemon pokemon){
         try {

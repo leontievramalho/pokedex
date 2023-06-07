@@ -14,7 +14,7 @@ public class DAO<T extends AbstrataIdentificador> implements InterfaceDAO<T> {
         List<T> resultado = new ArrayList<>();
         try{
             for(T objt : this.baseDeDados){
-                if(objt.getInfoBasicas().getNome().toLowerCase().contains(nome)){
+                if(objt.getInfoBasicas().getNome().toLowerCase().contains(nome.toLowerCase())){
                     resultado.add(objt);
                 }
             }

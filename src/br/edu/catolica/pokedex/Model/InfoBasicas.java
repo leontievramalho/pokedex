@@ -5,9 +5,9 @@ import br.edu.catolica.pokedex.Abstracts.AInfoBasicas;
 import java.util.Arrays;
 
 public class InfoBasicas extends AInfoBasicas {
-    String nome;
-    String[] tipo;
-    String descricao;
+    public String nome;
+    public String[] tipo;
+    public String descricao;
 
     public InfoBasicas(String nome, String tipo, String descricao){
         this.nome = nome;

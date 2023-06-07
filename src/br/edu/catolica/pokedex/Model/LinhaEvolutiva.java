@@ -6,9 +6,9 @@ import br.edu.catolica.pokedex.Interface.Evolucao;
 import java.util.List;
 
 public class LinhaEvolutiva extends ALinhaEvolutiva implements Evolucao {
-    Pokemon pokemon;
-    Pokemon evolucao;
-    String metodo;
+    public Pokemon pokemon;
+    public Pokemon evolucao;
+    public String metodo;
 
     public LinhaEvolutiva(Pokemon pokemon, Pokemon evolucao, String metodo){
         this.pokemon = pokemon;
