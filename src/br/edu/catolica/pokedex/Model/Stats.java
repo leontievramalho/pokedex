@@ -66,4 +66,16 @@ public class Stats extends AStats {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+
+    @Override
+    public String toString() {
+        return "Stats{" +
+                "hp=" + hp +
+                ", atk=" + atk +
+                ", def=" + def +
+                ", spAtk=" + spAtk +
+                ", spDef=" + spDef +
+                ", speed=" + speed +
+                '}';
+    }
 }
