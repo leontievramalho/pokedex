@@ -6,7 +6,7 @@ import br.edu.catolica.pokedex.Model.*;
 
 public class Main {
     public static void main(String[] args){
-        /*
+
         InfoBasicas infoPikachu = new InfoBasicas("Pikachu", "eletrico",
                 "Ele mantém sua cauda levantada para monitorar seus arredores." +
                         " Se você puxar o rabo dele, ele tentará mordê-lo.");
@@ -63,7 +63,25 @@ public class Main {
 
         raichu.addHabilidade(lightningRod);
 
+        InfoBasicas infoCharmander = new InfoBasicas("Charmander", "fogo",
+                "Sua saúde pode ser medida pelo fogo na ponta de sua cauda." +
+                        "Quando queima brilhantemente indica que ele está com a saúde boa.");
 
+        Habilidade blaze = new Habilidade("Blaze",
+                "Aumenta o poder dos movimentos do tipo Fire em uma pitada.");
+        Habilidade solarPower = new Habilidade("Solar Power",
+                "Ao sol, Sp.Atk é aumentado, mas HP diminui");
+
+        Golpe ember = new Golpe("Ember", "eletrico", 40, "especial", 100,
+                "Ember causa dano e tem 10% de chance de queimar o alvo.");
+
+        CaracteristicasFisicas caracteristicasCharmander = new CaracteristicasFisicas(60, 8500,
+                "Charmaandeer");
+
+        Pokemon charmander = new Pokemon(infoCharmander, caracteristicasCharmander,
+                new Stats(39,52,43,60,50,65), blaze, ember);
+
+        charmander.addHabilidade(solarPower);
 
 
         LinhaEvolutiva pikachuRaichu = new LinhaEvolutiva(pikachu, raichu, "pedra trovao");
@@ -72,17 +90,19 @@ public class Main {
         pokedex.inserirPokemon(pikachu);
         pokedex.inserirPokemon(raichu);
         pokedex.inserirPokemon(poliwag);
+        pokedex.inserirPokemon(charmander);
         pokedex.pokedex.listarTodos();
 
         ControllerEquipe equipe = new ControllerEquipe();
         equipe.inserirPokemon(pikachu);
         equipe.inserirPokemon(poliwag);
+        equipe.inserirPokemon(charmander);
         equipe.evolucoes.inserir(pikachuRaichu);
         equipe.equipe.listarTodos();
         equipe.evoluir(pikachu, "pedra trovao");
         equipe.equipe.listarTodos();
 
-         */
+
 
     }
 }
