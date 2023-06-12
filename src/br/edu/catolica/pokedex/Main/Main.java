@@ -6,7 +6,7 @@ import br.edu.catolica.pokedex.Model.*;
 
 public class Main {
     public static void main(String[] args){
-        /*
+
         InfoBasicas infoPikachu = new InfoBasicas("Pikachu", "eletrico",
                 "Ele mantém sua cauda levantada para monitorar seus arredores." +
                         " Se você puxar o rabo dele, ele tentará mordê-lo.");
@@ -69,20 +69,27 @@ public class Main {
         LinhaEvolutiva pikachuRaichu = new LinhaEvolutiva(pikachu, raichu, "pedra trovao");
 
         ControllerPokedex pokedex= new ControllerPokedex();
-        pokedex.inserirPokemon(pikachu);
-        pokedex.inserirPokemon(raichu);
-        pokedex.inserirPokemon(poliwag);
-        pokedex.pokedex.listarTodos();
 
-        ControllerEquipe equipe = new ControllerEquipe();
-        equipe.inserirPokemon(pikachu);
-        equipe.inserirPokemon(poliwag);
-        equipe.evolucoes.inserir(pikachuRaichu);
-        equipe.equipe.listarTodos();
-        equipe.evoluir(pikachu, "pedra trovao");
-        equipe.equipe.listarTodos();
+        try {
+            pokedex.inserirPokemon(pikachu);
+            pokedex.inserirPokemon(raichu);
+            pokedex.inserirPokemon(poliwag);
+            pokedex.pokedex.listarTodos();
+        } catch (Exception e){
+            System.err.println(e);
+        }
 
-         */
+        try {
+            ControllerEquipe equipe = new ControllerEquipe();
+            equipe.inserirPokemon(pikachu);
+            equipe.inserirPokemon(poliwag);
+            equipe.evolucoes.inserir(pikachuRaichu);
+            equipe.equipe.listarTodos();
+            equipe.evoluir(pikachu, "pedra trovao");
+            equipe.equipe.listarTodos();
+        } catch (Exception e){
+            System.err.println(e);
+        }
 
     }
 }
