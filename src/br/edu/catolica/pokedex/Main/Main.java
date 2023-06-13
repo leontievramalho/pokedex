@@ -93,7 +93,7 @@ public class Main {
             pokedex.inserirPokemon(raichu);
             pokedex.inserirPokemon(poliwag);
             pokedex.inserirPokemon(charmander);
-            pokedex.pokedex.listarTodos();
+            //pokedex.listarTodos();
         } catch (Exception e){
             System.err.println(e);
         }
@@ -103,10 +103,15 @@ public class Main {
             equipe.inserirPokemon(pikachu);
             equipe.inserirPokemon(poliwag);
             equipe.inserirPokemon(charmander);
+            equipe.inserirPokemon(charmander);
+            equipe.inserirPokemon(charmander);
+            equipe.inserirPokemon(charmander);
+            equipe.inserirPokemon(charmander);
+            equipe.inserirPokemon(charmander);
             equipe.evolucoes.inserir(pikachuRaichu);
-            equipe.equipe.listarTodos();
+            //equipe.listarTodos();
             equipe.evoluir(pikachu, "pedra trovao");
-            equipe.equipe.listarTodos();
+            equipe.listarTodos();
         } catch (Exception e){
             System.err.println(e);
         }

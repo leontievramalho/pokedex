@@ -6,6 +6,8 @@ import br.edu.catolica.pokedex.Interface.Evolucao;
 import br.edu.catolica.pokedex.Model.LinhaEvolutiva;
 import br.edu.catolica.pokedex.Model.Pokemon;
 
+import java.util.List;
+
 public class ControllerEquipe implements Evolucao {
     public DAOEquipe equipe = new DAOEquipe();
     public DAOLinhaEvolutiva evolucoes = new DAOLinhaEvolutiva();
@@ -13,8 +15,8 @@ public class ControllerEquipe implements Evolucao {
     @Override
     public Pokemon evoluir(Pokemon pokemon, String metodo){
         try {
-            for (int i = 0; i < this.equipe.baseDeDados.size(); i++) {
-                if (this.equipe.baseDeDados.get(i).equals(pokemon)) {
+            for (int i = 0; i < this.equipe.baseDeDados.length; i++) {
+                if (this.equipe.baseDeDados[i] != null && this.equipe.baseDeDados[i].equals(pokemon)) {
                     for (LinhaEvolutiva familia : this.evolucoes.baseDeDados) {
                         if (familia.getPokemon().equals(pokemon)) {
                             this.equipe.atualizar(i, familia.evoluir(pokemon, metodo));
@@ -33,11 +35,7 @@ public class ControllerEquipe implements Evolucao {
 
     public boolean inserirPokemon(Pokemon pokemon){
         try {
-            if (this.equipe.baseDeDados.size() < 6) {
-                return this.equipe.inserir(pokemon);
-            } else {
-                System.out.println("Você já atingiu o máximo de 6 Pokémons");
-            }
+            return this.equipe.inserir(pokemon);
         } catch (Exception e){
             System.err.println(e);
         }
@@ -46,7 +44,7 @@ public class ControllerEquipe implements Evolucao {
 
     public boolean removerPokemon(Pokemon pokemon){
         try {
-            if (this.equipe.baseDeDados.size() > 1) {
+            if (this.equipe.baseDeDados.length > 1) {
                 return this.equipe.remover(pokemon);
             } else {
                 System.out.println("Você deve ter pelo menos 1 pokémon na sua equipe");
@@ -55,6 +53,13 @@ public class ControllerEquipe implements Evolucao {
             System.err.println(e);
         }
         return false;
+    }
+    public Pokemon[] listarTodos(){
+        for(Pokemon pk : this.equipe.baseDeDados){
+            if(pk != null)
+                System.out.println(pk.getInfoBasicas().getNome());
+        }
+        return this.equipe.baseDeDados;
     }
 
 }

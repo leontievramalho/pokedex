@@ -3,6 +3,8 @@ package br.edu.catolica.pokedex.Controller;
 import br.edu.catolica.pokedex.DAO.DAOPokedex;
 import br.edu.catolica.pokedex.Model.Pokemon;
 
+import java.util.List;
+
 public class ControllerPokedex {
     public DAOPokedex pokedex = new DAOPokedex();
 
@@ -18,5 +20,12 @@ public class ControllerPokedex {
             System.err.println(e);
         }
         return false;
+    }
+
+    public List<Pokemon> listarTodos(){
+        for(Pokemon pk : this.pokedex.baseDeDados){
+            System.out.println(pk.getInfoBasicas().getNome());
+        }
+        return null;
     }
 }
